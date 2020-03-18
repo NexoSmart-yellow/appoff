@@ -1,0 +1,116 @@
+// INFO: ESTILOS DE LA PÁGINA DE pages/web-login.php
+
+// importo estilos globales.
+@import '../styles-global.scss';
+
+// login
+#login{
+    text-align: center;
+    min-height: 100%;
+    position: absolute;
+    width: 100%;
+    #top-bar {
+        height: 22%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            p {
+                font-size: 30px;
+                line-height: 30px;
+            }
+            img {
+                max-width: 15%;
+                margin-left: 10px;
+            }
+        }
+    }
+                
+    .title-login{
+        margin-bottom: 2em;
+        img{
+            width: 100%;
+            float: right;
+        }
+    }
+
+    .subtitle-login{
+        img{
+            width: 75%;
+            text-align: center;
+            margin: 0em auto;
+        }
+    }
+
+    .login-body {
+        height: 78%;
+        margin-top: 0;
+        background-image: url('../../images/img/back.jpg');
+        background-size: cover;
+        background-position: center center;
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 40px;
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+
+            .login_white_box {
+                background: #fff;
+                border-radius: 20px;
+                padding: 10px 5px;
+                padding-bottom: 23px;
+                width: 80%;
+
+                input{
+                    background: transparent;
+                    border-color: transparent;
+                    border-bottom: solid 2px #ccc;
+                    padding-left: 25px !important;
+                }
+            }
+
+            .btn_ingresar {
+                background-color: #fd5e13 !important;
+                font-size: 16px;
+                padding: 3px 0 !important;
+                border-radius: 10px;
+                color: #fff;
+                width: 160px;
+                margin-top: 45px;
+            }
+        }
+    }
+}
+
+
+.btn-salir-registro,
+.btn-continuar-registro{
+    @include button($color-principal, #fff);
+}
+
+.modal-header{
+    background: $color-secundario-1;
+    color: #fff;
+}
+
+.close{
+    text-shadow: none !important;
+    color: #fff !important;
+}
+
+@media (max-height: 500px) {
+	#top-bar {
+        display: none !important;
+    }
+
+    .login-body {
+        height: 100% !important;
+    }
+}

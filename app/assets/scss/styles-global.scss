@@ -1,0 +1,146 @@
+// color palette.
+$color-blanco: #fff;
+$color-principal: #e68349;
+$color-oscuro-1: #515151;
+$color-oscuro-2: #27293d;
+$color-oscuro-3: #181528;
+$color-secundario-1: #253d7a;
+$color-secundario-2: #1d8cf8;
+$color-secundario-3: #ffed00;
+$color-secundario-4: #df2e24;
+$color-fondo: #ececec;
+
+// measurements
+$margin-bottom-component: 2em;
+$height-screen: 90vh;
+$sidebar-width: 185px;
+
+// fonts.
+$fuente-principal: 'Open Sans Condensed', sans-serif;
+
+// animate.css
+// @import 'plugins/animate.css';
+
+
+// mixins
+// -> propiedades para imagen como background.
+@mixin background-propierties($size, $position, $attac, $width, $height) {
+    background-size: $size;
+    background-position: $position;
+    background-repeat: repeat;
+    background-attachment: $attac;
+    width: $width;
+    height: $height;
+}
+
+
+@mixin gradiente2() {
+  background: #ffb76b;
+  background: -moz-linear-gradient(-45deg, #ffb76b 0%, #e68349 54%, #e68349 81%, #e68349 100%, #ff7f04 100%, #e68349 100%);
+  background: -webkit-linear-gradient(-45deg, #ffb76b 0%,#e68349 54%,#e68349 81%,#e68349 100%,#ff7f04 100%,#e68349 100%);
+  background: linear-gradient(135deg, #ffb76b 0%,#e68349 54%,#e68349 81%,#e68349 100%,#ff7f04 100%,#e68349 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb76b', endColorstr='#e68349',GradientType=1 );
+}
+
+// -> propiedades para usar flexbox.
+@mixin flex($jc, $fd, $ai, $fw) {
+    display: flex;
+    justify-content: $jc;
+    flex-direction: $fd;
+    align-items: $ai;
+    flex-wrap: $fw; 
+}
+
+// -> propiedades boton base.
+@mixin button($background, $color) {
+    background-color: $background;
+    color: $color;
+    border-style: none;
+    border-radius: 0.5em;
+    padding: 0.5em 1.25em;
+    opacity: 1;
+    &:hover{
+       opacity: 0.8;
+    }
+}
+
+// -> propiedades para cada box.
+@mixin box() {
+    background: $color-oscuro-2;
+    border-style: none;
+    width: 100%;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+// -> propiedades para cada input.
+@mixin input(){
+  border-style: none;
+  padding: 0.5em;
+  margin: 0.5em auto;
+  &:hover{
+    border: 2px solid $color-secundario-3;
+  }
+}
+
+// -> propiedad para scroll en tabla con head fixed.
+@mixin scroll-table($height) {
+  // fixed-header en <table>
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  table tbody {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: $height;
+  }
+
+  table thead {
+    width: 100%;
+    color: #fff;
+    background: $color-principal;
+    
+    tr {
+      display: block;
+      width: 100%;
+
+      th{
+        text-align: left;
+        font-weight: bold;
+        border-bottom: none !important;
+        border-top: none !important;
+      }
+    }                
+  }
+}
+
+@mixin table-ligasegura(){
+  padding: 1em;    
+  @include scroll-table(10em);
+        
+  thead {
+    background: $color-oscuro-1;
+    color: $color-principal;
+            
+    th{
+      border-bottom: none !important;
+      border-top: none !important;
+    }
+  }
+}
+
+.noti_style {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  p {
+    text-align: center;
+  }
+}
+
+
+
+

@@ -1,0 +1,18 @@
+@import '../styles-global.scss';
+
+#btn-float{   
+    position: relative;  
+    z-index: 10000;   
+    top: 31.9em;
+    overflow: hidden;
+
+
+    .flex{
+        @include flex(space-around, row, center, nowrap);
+    }
+    
+    .bfloat{
+        width: 3em;
+        height: 3em;
+    }
+}

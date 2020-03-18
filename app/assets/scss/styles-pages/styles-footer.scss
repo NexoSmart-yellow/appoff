@@ -1,0 +1,14 @@
+// ESTILOS DEl FOOTER EN pages/web-footer.php 
+
+// importo estilos globales.
+@import '../styles-global.scss';
+
+#footer-bottom{
+    background: $color-oscuro-3;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    span{
+        color: #fff;        
+    }
+}

@@ -1,0 +1,27 @@
+// INFO: ESTILOS DE LA PÁGINA DE pages/web-info.php
+
+// importo estilos globales.
+@import '../styles-global.scss';
+
+#info{ 
+    overflow: hidden;   
+    text-align: center;
+    img{
+        width: 30%;
+        margin-bottom: 2em;
+    }        
+    
+    #mapid {         
+        position: fixed;
+        height: 100vh; 
+        width: 100%;
+        z-index: 55;
+    }    
+
+    .footermap{
+        background: green;
+        width: 100%;
+        padding: 1em;
+    }
+
+}

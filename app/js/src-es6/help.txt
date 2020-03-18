@@ -1,0 +1,6 @@
+/* Compilar Emacs6 con Babel */
+
+1. agregar en esta carpeta los archivos js en emacs6 
+2. acceder por consola al directorio ../js/src-es6/
+3. ejecutar comando: npm run build
+4. los archivos compilados a js emacs5 se encuentran en la carpeta js

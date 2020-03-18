@@ -1,0 +1,48 @@
+// INFO: ESTILOS DE LA PÁGINA DE pages/web-info.php
+
+// importo estilos globales.
+@import '../styles-global.scss';
+
+.action{
+    text-align: center;
+    .logo{
+        width: 30%;
+        margin-bottom: 2em;
+    }
+
+    #mapid { 
+        height: 30em; 
+        width: 100%;
+        z-index: 50;
+    }
+
+    .flex{
+        @include flex(space-around, row, center, nowrap);
+    }
+
+    .btn-action{   
+        img{
+            background-color: #fff;             
+            padding: 0.5em;
+            width: 75%;
+            &:hover{
+                cursor: pointer;
+                border-radius: 99999em;
+                background-color: $color-secundario-3;
+            }
+        }     
+        
+        p{
+            font-weight: bold;
+        }
+
+    }
+    
+    .btn-completado{
+        button{
+            width: 100%;
+            @include button($color-secundario-1, #fff);
+            text-transform: uppercase;
+        }
+    }
+}

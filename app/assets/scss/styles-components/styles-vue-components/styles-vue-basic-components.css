@@ -1,0 +1,16 @@
+.noti_style {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.noti_style p {
+  text-align: center;
+}
+/*# sourceMappingURL=styles-vue-basic-components.css.map */

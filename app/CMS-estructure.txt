@@ -1,0 +1,159 @@
+/* Estructura del CMS */
+
+notas: 
+    # Recordar agregar los ficheros nuevos
+    # [] = folders
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[assets]                                 
+    - [audio] --> (archivos de audio)
+
+    - [video] --> (archivos de video)
+
+    - [fonts] --> (archivos de fuentes)
+
+    - [images] --> (archivos de imagenes)
+        - [logos] --> (logos)
+            - logo-nexo-h.png --> (logo nexosmart horizontal)
+            - logo-nexo-v.png --> (logo nexosmart vertical)
+            - 
+
+    - [scss] --> (archivos scss)        
+        - [plugins] --> (plugins & librerias de css)
+
+        - [styles-components] --> (archivos scss de los componentes)
+            - [styles-vue-components] --> (archivos scss para componentes en vue)
+                - styles-vue-basic-components.scss --> (estilos scss de componenetes varios en vue)
+                - styles-tableScroll.scss
+            - styles-modalCSS.scss
+            - styles-modal.scss
+
+        - [style-navigation] --> (archivos scss de las secciones de navegación del cms)
+            - styles-nav-top.scss --> (estilos scss para la nav-top)
+            - styles-side-bar.scss --> (estilos scss para la side-bar)
+
+        - [styles-pages] --> (archivos scss de las paginas del cms)
+            - styles-login.scss --> (estilos del login)
+            - styles-footer.scss --> (estilos del footer)
+            - styles-action.scss
+            - styles-btn-flotante.scss
+            - styles-end.scss
+            - styles-home.scss
+            - styles-info.scss
+            - styles-intro.scss
+            - styles-pedidos.scss
+            - styles-perfil.scss
+
+        - style-global.scss --> (se declaran variables y mixins)  
+        - styles-generales.scss --> (estilos globales)   
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[components] --> (archivos de componentes del cms)
+    - [vue-components] --> (archivos de componentes hechos con vue)
+        - [vuex] / store.js --> (archivo de configuración de vuex, para comunicarse entre componentes)
+        - vue-basic-components.js --> (componentes varios en vue)  
+        - Carousel.js
+        - ColorPicker.js
+        - EditorTexto.js 
+        - tableScroll.js     
+    - [modal] 
+        - modals.php --> (declaro todos los modals de bootstrap a usar)
+        - [modal-content] --> (contenido de los modals)
+            - action-content.php
+            - edit-content.php
+            - info-content.php
+            - register-content.php
+
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[js] --> (archivos javascript del cms)
+    - [plugins] --> (plugins y librerias externas de js)
+        - [jquery-ui] --> (archivos de jquery-ui)
+        - [moment-js] --> (manipulación de fechas con js)
+        - [slick] --> (carousel con js)
+        - [vuex] --> (libreria de vue para comunicarse entre componentes)
+        - [jscolor] --> (color picker)
+    
+    - [vue] --> (archivos js donde se utilize vue)
+        - vue-functions.js --> (instancia de vue con el store(vuex) incluido)
+
+    - [src-es6] --> ("para usar JavaScript EcmacS6" -> archivos .js sin compilar, no se incluyen en el cms, se compilan con babelJs en el fichero [js])     
+    - (archivos js compilados con babel) --> (los archivos compilados de la carpeta [src-es6])
+    - functions.js --> (archivo js principal, en jquery)
+    - calendar.js
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[modulos]
+    - [calendar] --> (calendario descargado de internet)
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[server] --> (backend del cms)
+    - [api] --> (fichero donde se incorpora apis internas en PHP o NODE)
+
+    - [config] --> (archivo de configuración del cms)
+        - config.php
+        - .htaccess 
+
+    - [frameworks] --> (frameworks para utilizar en el backend)
+        - [nexosmart] --> (frame de NexoSmart)
+            - function.php
+            - functions_custom.php
+            - functions_visualizations.php
+            - functions_offline.php
+
+    - [http_request] --> (archivos consultados por llamadas ajax(jquery), fetch(js), axios(vue), etc. )
+        - [emails]
+            - list-emails.php
+        - change_status_order.php
+        - coordinates.php
+        - edit_user.php
+        - send_email.php
+        - show_info_user.php
+        - show_info_order.php
+        - show_orders.php
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[views] --> (archivos de vistas del cms)
+    - [navigation] --> (archivos de navegación por el cms)
+        - nav-top.php --> (navegación top) 
+        - side-bar.php --> (navegación lateral)   
+
+    - [includes] --> (archivos incluidos en el cms)
+        - header-web.php --> (inicio del html)
+        - footer-web.php --> (fin del html)
+
+    - [pages] --> (páginas del cms)        
+        - web-login.php --> (login del cms)
+        - footer-bottom.php --> (footer del cms)
+        - web-home.php --> (página principal del cms)
+        - web-btn-flotante.php --> (pagina con los botones flotante sobre el mapa)
+        - web-end.php --> (pagina de cierre)
+        - web-calendar.php --> (pagina con un calendario)
+        - web-info.php --> (modal con info del pedido y usuario)
+        - web-intro.php --> (pagina inicial)
+        - web-orders.php --> (pagina de pedidos)
+        - web-pedidos.php --> (pagina de pedidos tomados sin completar)
+        - web-perfil.php --> (pagina del perfil de usuario)
+        - web-presentacion.php --> (titulo y logo)
+
+-------------------------------------------------------------------------------------------------------------------------
+
+[node_modules] --> (modulos de node, para compilar con babel)
+
+-------------------------------------------------------------------------------------------------------------------------
+
+index.php --> (archivo principal)
+.babelrc  --> (configuración de babel)
+.htaccess --> (configuración htaccess)
+.htaccess.cache
+package.json
+package-lock.json
+CMS-content.txt                         
+CMS-estructure.txt
+CMS-reglamento.txt

@@ -1,0 +1,13 @@
+RewriteEngine on
+#RewriteBase / 
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^home$ index.php?go=home [QSA]
+RewriteRule ^perfil$ index.php?go=perfil [QSA]
+RewriteRule ^pedidos$ index.php?go=pedidos [QSA]
+RewriteRule ^end$ index.php?go=end [QSA]
+RewriteRule ^info$ index.php?go=info [QSA]
+RewriteRule ^action$ index.php?go=action [QSA]
+RewriteRule ^agenda$ index.php?go=agenda [QSA]
+RewriteRule ^logout$ index.php?logout=true [QSA]

@@ -1,0 +1,18 @@
+// INFO: ESTILOS DE LA PÁGINA DE pages/web-end.php
+
+// importo estilos globales.
+@import '../styles-global.scss';
+
+#end{   
+    padding: 1em;
+    text-align: center;
+    .title-end{
+        font-size: 1.25em;
+    }
+    .aqui{
+        color: $color-secundario-3;           
+    }
+    .url{
+        text-align: center;
+    }
+}

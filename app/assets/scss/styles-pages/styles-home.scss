@@ -1,0 +1,47 @@
+// INFO: ESTILOS DE LA PÁGINA DE pages/web-home.php
+
+// importo estilos globales.
+@import '../styles-global.scss';
+
+#home{
+    text-align: center;
+    width: 100%;
+
+    .logo{
+        width: 100%;
+        img{
+            width: 25%;
+        }
+        margin-bottom: 2em;
+    }
+
+    .title{
+        text-transform:uppercase;
+        font-size:80px;
+        letter-spacing: 0.25em;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    .tabla_pedidos{
+        thead{
+            background: $color-secundario-1;            
+        }
+        tbody{
+            background: rgba(255, 255, 255, 0.8);
+            color: $color-oscuro-2;
+            tr{
+                &:hover{
+                    cursor: pointer;
+                    background: $color-secundario-3;
+                    color: $color-oscuro-2;
+                }
+            }
+        }
+    }
+}
+
+.text-muted{
+    color: $color-principal !important;
+    letter-spacing: 1px;
+}

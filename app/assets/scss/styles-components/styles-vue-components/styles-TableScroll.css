@@ -1,0 +1,46 @@
+.noti_style {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.noti_style p {
+  text-align: center;
+}
+
+.table_scroll table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table_scroll table tbody {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 5em;
+}
+
+.table_scroll table thead {
+  width: 100%;
+  color: #fff;
+  background: #e68349;
+}
+
+.table_scroll table thead tr {
+  display: block;
+  width: 100%;
+}
+
+.table_scroll table thead tr th {
+  text-align: left;
+  font-weight: bold;
+  border-bottom: none !important;
+  border-top: none !important;
+}
+/*# sourceMappingURL=styles-TableScroll.css.map */

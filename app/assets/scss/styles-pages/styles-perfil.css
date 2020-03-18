@@ -1,0 +1,46 @@
+.noti_style {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.noti_style p {
+  text-align: center;
+}
+
+#perfil {
+  padding: 2em;
+}
+
+#perfil .title {
+  text-transform: uppercase;
+  font-size: 40px;
+  letter-spacing: 0.24em;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#perfil p {
+  color: #ffed00;
+}
+
+#perfil button {
+  background-color: #253d7a;
+  color: #fff;
+  border-style: none;
+  border-radius: 0.5em;
+  padding: 0.5em 1.25em;
+  opacity: 1;
+  width: 100%;
+}
+
+#perfil button:hover {
+  opacity: 0.8;
+}
+/*# sourceMappingURL=styles-perfil.css.map */

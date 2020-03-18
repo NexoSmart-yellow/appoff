@@ -1,0 +1,8 @@
+ // INFO: ESTILOS DEL COMPONENTE TABLESCROLL.JS EN -> components/vue-components/TableScroll.js
+ 
+ // importo estilos globales.
+ @import '../../styles-global.scss';
+
+ .table_scroll{
+     @include scroll-table(5em);
+ }

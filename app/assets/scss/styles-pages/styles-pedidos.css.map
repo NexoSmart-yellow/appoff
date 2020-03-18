@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACsIA,AAAA,WAAW,CAAC;EACV,OAAO,EAAE,eAAe;EACxB,eAAe,EAAE,iBAAiB;EAClC,WAAW,EAAE,iBAAiB;CAI/B;;AAPD,AAIE,WAJS,CAIT,CAAC,CAAC;EACA,UAAU,EAAE,MAAM;CACnB;;ADvIH,AAAA,QAAQ,CAAA;EACJ,UAAU,EAAE,MAAM;CAarB;;AAdD,AAGI,QAHI,CAGJ,KAAK,CAAA;EACD,UAAU,ECHG,OAAO;CDIvB;;AALL,AAQY,QARJ,CAMJ,KAAK,CACD,EAAE,AACG,MAAM,CAAA;EACH,UAAU,ECNL,OAAO;EDOZ,KAAK,ECVJ,OAAO;CDWX",
+    "sources": [
+        "styles-pedidos.scss",
+        "../styles-global.scss"
+    ],
+    "names": [],
+    "file": "styles-pedidos.css"
+}

@@ -1,0 +1,152 @@
+// ESTILOS DE LAS BARRA DE NAVEGACIÓN TOP Y LATERAL EN navigations/nav-top.php & side-nav.php
+
+// importo estilos globales.
+@import '../styles-global.scss';
+
+// navegación top.
+#nav-top{
+    background: #fff;
+    height: 10vh;
+    position: relative;
+    nav{
+        padding: 0;
+        height: 10vh;
+        z-index: 100;
+        background-color: $color-blanco;  
+        border-bottom: 1px solid $color-principal;  
+        .dropdown-menu{
+            left: -92px;
+            top: 125%;
+            a{
+                color: $color-oscuro-1;
+            }
+        }
+        a,span{
+            color: #424242;
+            &:hover{
+                color: $color-principal;
+                cursor: pointer;
+            }
+        }
+        img{
+            width: 121px;
+            text-align: left;
+        }
+        .icon-top{
+            text-align: right;
+            .navbar-toggler-icon{
+                text-shadow: none !important;
+                color: #fff !important;                
+            }
+        }
+
+        .navbar-toggler {
+            border-color: transparent;
+            font-size: 1rem;
+        }
+
+        .navbar-brand {
+            padding: 0;
+            text-align: left;
+            margin-left: 9px;
+            display: flex;
+            align-items: center;
+        }
+
+        .notification {
+            display: flex;
+            .bt_in_replanteo {
+                display: none;
+                position: relative;
+                margin-right: 6px;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 25px;
+                }
+                #num_replanteos {
+                    position: absolute;
+                    top: -10px;
+                    right: 0px;
+                    width: 23px;
+                    height: 23px;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    background: red;
+                    color: white;
+                }
+            }
+        }
+
+        .notification i{
+            color: rgb(48, 48, 48);
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .navbar-collapse {
+            background: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #back-intro {
+            color: #424242 !important;
+            font-size: 30px !important;
+            display: none;
+            padding: .25rem .75rem;
+        }
+
+        .sidenav {
+            height: 90vh; /* 100% Full-height */
+            width: 0; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 101; /* Stay on top */
+            bottom: 0; /* Stay at the top */
+            left: 0;
+            background-color: rgba(0,0,0,.8); /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            transition: transform .3s;
+            width: 73vw;
+            transform: translateX(0%);
+        }
+        
+        .close {
+            transform: translateX(-120%)
+        }
+        
+        .open {
+            transform: translateX(0%)
+        }
+        
+        /* The navigation menu links */
+        .this_page {
+            color: #fd5e13 !important;
+            background: #fff !important;
+            border-left: 18px solid #fd5e13 !important;
+        }
+
+        .sidenav a,.sidenav span {
+        padding: 15px 0px 15px 50px;
+        border-bottom: solid 2px #ccc;
+        text-decoration: none;
+        font-size: 16px;
+        color: #fff;
+        display: block;
+        
+        font-family: 'Open Sans', sans-serif;
+        }
+        
+        /* When you mouse over the navigation links, change their color */
+        
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a,.sidenav span {font-size: 18px;}
+        }
+    }
+}
+
+

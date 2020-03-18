@@ -1,0 +1,201 @@
+.noti_style {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.noti_style p {
+  text-align: center;
+}
+
+#nav-top {
+  background: #fff;
+  height: 10vh;
+  position: relative;
+}
+
+#nav-top nav {
+  padding: 0;
+  height: 10vh;
+  z-index: 100;
+  background-color: #fff;
+  border-bottom: 1px solid #e68349;
+  /* The navigation menu links */
+  /* When you mouse over the navigation links, change their color */
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+}
+
+#nav-top nav .dropdown-menu {
+  left: -92px;
+  top: 125%;
+}
+
+#nav-top nav .dropdown-menu a {
+  color: #515151;
+}
+
+#nav-top nav a, #nav-top nav span {
+  color: #424242;
+}
+
+#nav-top nav a:hover, #nav-top nav span:hover {
+  color: #e68349;
+  cursor: pointer;
+}
+
+#nav-top nav img {
+  width: 121px;
+  text-align: left;
+}
+
+#nav-top nav .icon-top {
+  text-align: right;
+}
+
+#nav-top nav .icon-top .navbar-toggler-icon {
+  text-shadow: none !important;
+  color: #fff !important;
+}
+
+#nav-top nav .navbar-toggler {
+  border-color: transparent;
+  font-size: 1rem;
+}
+
+#nav-top nav .navbar-brand {
+  padding: 0;
+  text-align: left;
+  margin-left: 9px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#nav-top nav .notification {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#nav-top nav .notification .bt_in_replanteo {
+  display: none;
+  position: relative;
+  margin-right: 6px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#nav-top nav .notification .bt_in_replanteo img {
+  width: 25px;
+}
+
+#nav-top nav .notification .bt_in_replanteo #num_replanteos {
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  width: 23px;
+  height: 23px;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
+#nav-top nav .notification i {
+  color: #303030;
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+#nav-top nav .navbar-collapse {
+  background: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+#nav-top nav #back-intro {
+  color: #424242 !important;
+  font-size: 30px !important;
+  display: none;
+  padding: .25rem .75rem;
+}
+
+#nav-top nav .sidenav {
+  height: 90vh;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 101;
+  /* Stay on top */
+  bottom: 0;
+  /* Stay at the top */
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+  width: 73vw;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+#nav-top nav .close {
+  -webkit-transform: translateX(-120%);
+          transform: translateX(-120%);
+}
+
+#nav-top nav .open {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+#nav-top nav .this_page {
+  color: #fd5e13 !important;
+  background: #fff !important;
+  border-left: 18px solid #fd5e13 !important;
+}
+
+#nav-top nav .sidenav a, #nav-top nav .sidenav span {
+  padding: 15px 0px 15px 50px;
+  border-bottom: solid 2px #ccc;
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media screen and (max-height: 450px) {
+  #nav-top nav .sidenav {
+    padding-top: 15px;
+  }
+  #nav-top nav .sidenav a, #nav-top nav .sidenav span {
+    font-size: 18px;
+  }
+}
+/*# sourceMappingURL=styles-nav-top.css.map */

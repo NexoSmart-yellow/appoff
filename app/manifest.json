@@ -1,0 +1,33 @@
+{
+    "short_name": "MEC APP",
+    "name": "MEC APP",
+    "start_url": "index.php",
+    "background_color": "#fd5e13",
+    "theme_color": "#fd5e13",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [    
+        {
+            "src": "./assets/images-manifest/icons/icon-72x72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "./assets/images-manifest/icons/icon-96x96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "./assets/images-manifest/icons/icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "./assets/images-manifest/icons/icon-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+
+
+}

@@ -1,0 +1,20 @@
+// INFO: ESTILOS DE LA PÁGINA DE pages/web-pedidos.php
+
+// importo estilos globales.
+@import '../styles-global.scss';
+
+.pedidos{
+    text-align: center;
+
+    thead{
+        background: $color-secundario-1;
+    }
+    tbody{
+        tr{
+            &:hover{
+                background: $color-secundario-3;
+                color: $color-oscuro-3;
+            }
+        }
+    }
+}

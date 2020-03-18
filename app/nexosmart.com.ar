@@ -1,0 +1,209 @@
+    server {
+    listen 80 default_server;
+    server_name nexosmart.com www.nexosmart.com nexosmart.com.ar www.nexosmart.com.ar;
+    return 301 https://www.nexosmart.com.ar$request_uri;
+    ssl_certificate /etc/letsencrypt/live/nexosmart.com.ar/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/nexosmart.com.ar/privkey.pem;
+#    ssl_certificate /etc/nginx/ssl/www.nexosmart.com.ar.crt;
+#    ssl_certificate_key /etc/nginx/ssl/www.nexosmart.com.ar.key;
+    }
+
+    server {
+    listen 443 ssl;
+    server_name nexosmart.com nexosmart.com.ar;
+    return 301 https://www.nexosmart.com.ar$request_uri;
+    ssl_certificate /etc/letsencrypt/live/nexosmart.com.ar/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/nexosmart.com.ar/privkey.pem;
+     # managed by Certbot
+}
+
+    server {
+    listen 443 ssl default_server;
+    server_name www.nexosmart.com.ar;
+    root /var/www/nexosmart.com.ar;
+    ssl_certificate /etc/letsencrypt/live/nexosmart.com.ar/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/nexosmart.com.ar/privkey.pem; # managed by Certbot
+
+    access_log /var/log/nginx/nexo-access.log;
+    error_log /var/log/nginx/nexo-error.log;
+    index index.php;
+
+    location ~ \.php$ {
+#	try_files $uri = 404;
+    fastcgi_pass unix:/tmp/nexosmart.sock;
+#	fastcgi_cache one;
+#	fastcgi_cache_min_uses 3;
+#	fastcgi_cache_valid 200 301 302 304 5m;
+#	fastcgi_cache_key "$request_method|$host|$request_uri";
+#	fastcgi_hide_header "Set-Cookie";
+#	fastcgi_ignore_headers "Cache-Control" "Expires";
+    fastcgi_index index.php;
+    include /etc/nginx/fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_param PHP_ADMIN_VALUE "open_basedir=/var/www/nexosmart.com.ar";
+#	fastcgi_ignore_client_abort off;
+    }
+    gzip_static on;
+
+    location ~ ^/clientes/tbf/config$ { rewrite ^ /clientes/tbf/index.php?go=config; }
+    location ~ ^/clientes/tbf/home { rewrite ^ /clientes/tbf/index.php; }
+    location ~ ^/clientes/tbf/statistics$ { rewrite ^ /clientes/tbf/index.php?go=statistics; }
+    location ~ ^/clientes/tbf/tb$ { rewrite ^ /clientes/tbf/index.php?go=trade_blotter; }
+
+    location ~ ^/clientes/upaq/cms/home { rewrite ^ /clientes/upaq/cms/index.php?go=home; }
+    location ~ ^/clientes/upaq/cms/userlist { rewrite ^ /clientes/upaq/cms/index.php?go=userlist; }
+    location ~ ^/clientes/upaq/cms/usuarios { rewrite ^ /clientes/upaq/cms/index.php?go=usuarios; }
+    location ~ ^/clientes/upaq/cms/cadetes { rewrite ^ /clientes/upaq/cms/index.php?go=cadetes; }
+    location ~ ^/clientes/upaq/cms/cadeterias { rewrite ^ /clientes/upaq/cms/index.php?go=cadeterias; }
+    location ~ ^/clientes/upaq/cms/pedidos { rewrite ^ /clientes/upaq/cms/index.php?go=pedidos; }
+    location ~ ^/clientes/upaq/cms/reservas { rewrite ^ /clientes/upaq/cms/index.php?go=reservas; }
+    location ~ ^/clientes/upaq/cms/login_error_cadete { rewrite ^ /clientes/upaq/cms/index.php?go=login_error_cadete; }
+
+    location ~ ^/clientes/chatbot/cms/pagina$ { rewrite ^ /clientes/chatbot/cms/index.php?go=pagina; }
+    location ~ ^/clientes/chatbot/cms/home { rewrite ^ /clientes/chatbot/cms/index.php?go=home; }
+    location ~ ^/clientes/chatbot/cms/paginas { rewrite ^ /clientes/chatbot/cms/index.php?go=paginas; }
+    location ~ ^/clientes/chatbot/cms/panel { rewrite ^ /clientes/chatbot/cms/index.php?go=panel; }
+    location ~ ^/clientes/chatbot/cms/fb_login { rewrite ^ /clientes/chatbot/cms/index.php?go=fb_login; }
+    location ~ ^/clientes/chatbot/cms/fb_logout { rewrite ^ /clientes/chatbot/cms/index.php?go=fb_logout; }
+    location ~ ^/clientes/chatbot/cms/logout { rewrite ^ /clientes/chatbot/cms/index.php?logout=true; }
+    location ~ ^/clientes/chatbot/cms/broadcast { rewrite ^ /clientes/chatbot/cms/index.php?go=broadcast; }
+    location ~ ^/clientes/chatbot/cms/palabras { rewrite ^ /clientes/chatbot/cms/index.php?go=palabras; }
+
+    location ~ ^/clientes/hoyahorro/ingresar$ { rewrite ^ /clientes/hoyahorro/index.php?go=login; }
+    location ~ ^/clientes/hoyahorro/registrarse$ { rewrite ^ /clientes/hoyahorro/index.php?go=signup; }
+    location ~ ^/clientes/hoyahorro/registrarseVendedor$ { rewrite ^ /clientes/hoyahorro/index.php?go=signup_seller; }
+    location ~ ^/clientes/hoyahorro/restaurar_contraseña$ { rewrite ^ /clientes/hoyahorro/index.php?go=recuperar_pw; }
+    location ~ ^/clientes/hoyahorro/inicio$ { rewrite ^ /clientes/hoyahorro/index.php; }
+    location ~ ^/clientes/hoyahorro/full$ { rewrite ^ /clientes/hoyahorro/index.php?go=full; }
+    location ~ ^/clientes/hoyahorro/producto/([0-9]+)/?$ { rewrite ^ /clientes/hoyahorro/index.php?go=product&select=$1; }
+    location ~ ^/clientes/hoyahorro/loquieroya/([0-9]+)/?$ { rewrite ^ /clientes/hoyahorro/index.php?go=buying&select=$1; }
+    location ~ ^/clientes/hoyahorro/sorteo$ { rewrite ^ /clientes/hoyahorro/index.php?go=sorteo; }
+    location ~ ^/clientes/hoyahorro/buscar$ { rewrite ^ /clientes/hoyahorro/index.php?go=buscar; }
+    location ~ ^/clientes/hoyahorro/vende_ya$ { rewrite ^ /clientes/hoyahorro/index.php?go=publicar; }
+    location ~ ^/clientes/hoyahorro/ayuda_mascotas$ { rewrite ^ /clientes/hoyahorro/index.php?go=mascota; }
+    location ~ ^/clientes/hoyahorro/cupones$ { rewrite ^ /clientes/hoyahorro/index.php?go=cuponera; }
+    location ~ ^/clientes/hoyahorro/contacto$ { rewrite ^ /clientes/hoyahorro/index.php?go=contacto; }
+    location ~ ^/clientes/hoyahorro/micupon$ { rewrite ^ /clientes/hoyahorro/index.php?go=micupon; }
+    location ~ ^/clientes/hoyahorro/comprar_cupon$ { rewrite ^ /clientes/hoyahorro/index.php?go=buyingCupon; }
+    location ~ ^/clientes/hoyahorro/mascotas$ { rewrite ^ /clientes/hoyahorro/index.php?go=mascotas; }
+    location ~ ^/clientes/hoyahorro/mascotas/([0-9]+)/?$ { rewrite ^ /clientes/hoyahorro/index.php?go=mascotas&select=$1; }
+    location ~ ^/clientes/hoyahorro/alta_profesionales$ { rewrite ^ /clientes/hoyahorro/index.php?go=alta_profesionales; }
+    location ~ ^/clientes/hoyahorro/listado_profesionales$ { rewrite ^ /clientes/hoyahorro/index.php?go=listado_profesionales; }
+    location ~ ^/clientes/hoyahorro/empleos_ofrecidos$ { rewrite ^ /clientes/hoyahorro/index.php?go=empleos_ofrecidos; }
+    location ~ ^/clientes/hoyahorro/empleos_pedidos$ { rewrite ^ /clientes/hoyahorro/index.php?go=empleos_pedidos; }
+    location ~ ^/clientes/hoyahorro/searchdemo1$ { rewrite ^ /clientes/hoyahorro/index.php?go=demoright; }
+    location ~ ^/clientes/hoyahorro/searchdemo2$ { rewrite ^ /clientes/hoyahorro/index.php?go=demopublicidad; }
+    location ~ ^/clientes/hoyahorro/salir$ { rewrite ^ /clientes/hoyahorro/index.php?logout=true; }
+    location ~ ^/clientes/hoyahorro/usuario$ { rewrite ^ /clientes/hoyahorro/index.php?go=panel; }
+    location ~ ^/clientes/hoyahorro/ayuda$ { rewrite ^ /clientes/hoyahorro/index.php?go=ayuda; }
+    location ~ ^/clientes/hoyahorro/credenciales$ { rewrite ^ /clientes/hoyahorro/index.php?go=credenciales; }
+	
+	location ~ ^/clientes/hoyahorro/vender$ { rewrite ^ /clientes/hoyahorro/index.php?go=vender; }
+    location ~ ^/clientes/hoyahorro/mail_cupon$ { rewrite ^ /clientes/hoyahorro/index.php?go=mail_cupon; }
+
+  	location ~ ^/clientes/hoyahorro/faq_comprar$ { rewrite ^ /clientes/hoyahorro/index.php?go=faq_comprar; }
+  	location ~ ^/clientes/hoyahorro/faq_vender$ { rewrite ^ /clientes/hoyahorro/index.php?go=faq_vender; }
+  	location ~ ^/clientes/hoyahorro/marcas$ { rewrite ^ /clientes/hoyahorro/index.php?go=marcas; }
+  	location ~ ^/clientes/hoyahorro/procom$ { rewrite ^ /clientes/hoyahorro/index.php?go=procom; }
+  	location ~ ^/clientes/hoyahorro/proven$ { rewrite ^ /clientes/hoyahorro/index.php?go=proven; }
+
+    location ~ ^/clientes/hoyahorro/empleo$ { rewrite ^ /clientes/hoyahorro/index.php?go=empleo; }
+    location ~ ^/clientes/hoyahorro/publicidad$ { rewrite ^ /clientes/hoyahorro/index.php?go=publicidad; }
+    location ~ ^/clientes/hoyahorro/ptosentrega$ { rewrite ^ /clientes/hoyahorro/index.php?go=ptosentrega; }
+
+	location ~ ^/clientes/hoyahorro/Indumentaria$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=8; }
+	location ~ ^/clientes/hoyahorro/Bares$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=9; }
+    location ~ ^/clientes/hoyahorro/Gastronomía$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=8; }
+	location ~ ^/clientes/hoyahorro/Estetica%20y%20Belleza$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=7; }
+	location ~ ^/clientes/hoyahorro/Gastronomía$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=6; }
+	location ~ ^/clientes/hoyahorro/Gimnasio$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=5; }
+    location ~ ^/clientes/hoyahorro/Productos$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=4; }
+    location ~ ^/clientes/hoyahorro/Servicios$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=3; }
+    location ~ ^/clientes/hoyahorro/Inmuebles$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=2; }
+    location ~ ^/clientes/hoyahorro/Vehiculos$ { rewrite ^ /clientes/hoyahorro/index.php?go=categoria&id=1; }
+
+    location ~ ^/clientes/WebAlquileres/cms/home$ { rewrite ^ /clientes/WebAlquileres/cms/index.php?go=home; }
+    location ~ ^/clientes/WebAlquileres/cms/register$ { rewrite ^ /clientes/WebAlquileres/cms/index.php?go=register; }
+    location ~ ^/clientes/WebAlquileres/cms/recovery$ { rewrite ^ /clientes/WebAlquileres/cms/index.php?go=recovery; }
+    location ~ ^/clientes/WebAlquileres/cms/logout$ { rewrite ^ /clientes/WebAlquileres/cms/index.php?logout=true; }
+    location ~ ^/clientes/WebAlquileres/cms/tablaAlquileres$ { rewrite ^ /clientes/WebAlquileres/cms/index.php?go=tablaAlquileres; }
+    location ~ ^/clientes/WebAlquileres/cms/tablaUsuarios$ { rewrite ^ /clientes/WebAlquileres/cms/index.php?go=tablaUsuarios; }
+
+    location ~ ^/clientes/viajes_app/cms/home$ { rewrite ^ /clientes/viajes_app/cms/index.php?go=home; }
+    location ~ ^/clientes/viajes_app/cms/logout$ { rewrite ^ /clientes/viajes_app/cms/index.php?logout=true; }
+    location ~ ^/clientes/viajes_app/cms/pasajeros$ { rewrite ^ /clientes/viajes_app/cms/index.php?go=pasajeros; }
+    location ~ ^/clientes/viajes_app/cms/choferes$ { rewrite ^ /clientes/viajes_app/cms/index.php?go=choferes; }
+    location ~ ^/clientes/viajes_app/cms/viajes$ { rewrite ^ /clientes/viajes_app/cms/index.php?go=viajes; }
+    location ~ ^/clientes/viajes_app/cms/configuracion$ { rewrite ^ /clientes/viajes_app/cms/index.php?go=configuracion; }
+	
+	
+    location ~ ^/clientes/checkaccess/cms/home { rewrite ^ /clientes/checkaccess/cms/index.php?go=home; }
+	location ~ ^/clientes/checkaccess/cms/tablaInquilinos { rewrite ^ /clientes/checkaccess/cms/index.php?go=tablaInquilinos; }
+	location ~ ^/clientes/checkaccess/cms/tableVisitant { rewrite ^ /clientes/checkaccess/cms/index.php?go=tableVisitant; }
+	location ~ ^/clientes/checkaccess/cms/tablaEventInquilino { rewrite ^ /clientes/checkaccess/cms/index.php?go=tablaEventInquilino; }
+	location ~ ^/clientes/checkaccess/cms/tablaCars { rewrite ^ /clientes/checkaccess/cms/index.php?go=tablaCars; }
+    location ~ ^/clientes/checkaccess/cms/tablaVigilantes { rewrite ^ /clientes/checkaccess/cms/index.php?go=tablaVigilantes; }
+	location ~ ^/clientes/checkaccess/cms/tablaConf { rewrite ^ /clientes/checkaccess/cms/index.php?go=tablaConf; }
+
+    location ~ ^/clientes/haycar/crm/home$ { rewrite ^ /clientes/haycar/crm/index.php?go=home; }
+    location ~ ^/clientes/haycar/crm/register$ { rewrite ^ /clientes/haycar/crm/index.php?go=register; }
+    location ~ ^/clientes/haycar/crm/recovery$ { rewrite ^ /clientes/haycar/crm/index.php?go=recovery; }
+    location ~ ^/clientes/haycar/crm/logout$ { rewrite ^ /clientes/haycar/crm/index.php?logout=true; }
+    location ~ ^/clientes/haycar/crm/ventas$ { rewrite ^ /clientes/haycar/crm/index.php?go=ventas; }
+    location ~ ^/clientes/haycar/crm/account$ { rewrite ^ /clientes/haycar/crm/index.php?go=account; }
+    location ~ ^/clientes/haycar/crm/contact$ { rewrite ^ /clientes/haycar/crm/index.php?go=contact; }
+    location ~ ^/clientes/haycar/crm/video-training$ { rewrite ^ /clientes/haycar/crm/index.php?admin=true&go=video-training; }
+    location ~ ^/clientes/haycar/crm/export$ { rewrite ^ /clientes/haycar/crm/index.php?go=export; }
+	
+    location ~ ^/clientes/parking/home$ { rewrite ^ /clientes/parking/index.php?go=home; }
+    location ~ ^/clientes/parking/tables$ { rewrite ^ /clientes/parking/index.php?go=tables; }
+    location ~ ^/clientes/parking/statistics$ { rewrite ^ /clientes/parking/index.php?go=statistics; }
+    location ~ ^/clientes/parking/logout$ { rewrite ^ /clientes/parking/index.php?logout=true; }
+    location ~ ^/clientes/parking/sales$ { rewrite ^ /clientes/parking/index.php?go=sales; }
+    location ~ ^/clientes/parking/rates$ { rewrite ^ /clientes/parking/index.php?go=rates; }
+    location ~ ^/clientes/parking/customer$ { rewrite ^ /clientes/parking/index.php?go=customer; }
+
+    location ~ ^/clientes/ISITI_proyectos/liga-segura/cms/logout$ { rewrite ^ /clientes/ISITI_proyectos/liga-segura/cms/index.php?logout=true; }
+    location ~ ^/clientes/ISITI_proyectos/liga-segura/cms/home$ { rewrite ^ /clientes/ISITI_proyectos/liga-segura/cms/index.php?go=home; }
+
+    location ~ ^/clientes/constructorapp/home$ { rewrite ^ /clientes/constructorapp/index.php?go=home; }
+    location ~ ^/clientes/constructorapp/panel-appNav$ { rewrite ^ /clientes/constructorapp/index.php?go=panel-appNav; }
+    location ~ ^/clientes/constructorapp/panel-appFooter$ { rewrite ^ /clientes/constructorapp/index.php?go=panel-appFooter; }
+    location ~ ^/clientes/constructorapp/panel-appBox$ { rewrite ^ /clientes/constructorapp/index.php?go=panel-appBox; }
+    location ~ ^/clientes/constructorapp/pwa$ { rewrite ^ /clientes/constructorapp/index.php?go=pwa; }
+    location ~ ^/clientes/constructorapp/panel-perfil$ { rewrite ^ /clientes/constructorapp/index.php?go=panel-perfil; }
+    location ~ ^/clientes/constructorapp/panel-save$ { rewrite ^ /clientes/constructorapp/index.php?go=panel-save; }
+    location ~ ^/clientes/constructorapp/logout$ { rewrite ^ /clientes/constructorapp/index.php?logout=true; }
+
+    location ~ ^/clientes/appuns/home$ { rewrite ^ /clientes/appuns/index.php?go=home; }
+    location ~ ^/clientes/appuns/siu-guarani$ { rewrite ^ /clientes/appuns/index.php?go=siu-guarani; }
+    location ~ ^/clientes/appuns/colectivos$ { rewrite ^ /clientes/appuns/index.php?go=colectivos; }
+    location ~ ^/clientes/appuns/mapas$ { rewrite ^ /clientes/appuns/index.php?go=mapas; }
+    location ~ ^/clientes/appuns/sanidad$ { rewrite ^ /clientes/appuns/index.php?go=sanidad; }
+    location ~ ^/clientes/appuns/subsidios$ { rewrite ^ /clientes/appuns/index.php?go=subsidios; }
+    location ~ ^/clientes/appuns/logout$ { rewrite ^ /clientes/appuns/index.php?logout=true; }
+
+
+    location ~ ^/clientes/mec_app/home$ { rewrite ^ /clientes/mec_app/index.php?go=home; }
+    location ~ ^/clientes/mec_app/logout$ { rewrite ^ /clientes/mec_app/index.php?logout=true; }
+
+    location ~ ^/clientes/bbyf {
+            try_files $uri $uri/ /clientes/bbyf/index.php?$args;
+    }
+
+
+    location ~* ^.+.(jpg|jpeg|gif|css|png|js|ico|swf|flw)$ {
+    access_log off;
+    expires max;
+    break;
+    }
+
+    location ~/\.ht {
+    deny all;
+    }
+
+    include /etc/nginx/templates/default_j;
+#    include /etc/nginx/templates/php;
+    include /etc/nginx/templates/phpmyadmin;
+
+}

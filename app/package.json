@@ -1,0 +1,19 @@
+{
+  "name": "mec-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/funtions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-rev-collector": "^1.3.1"
+  }
+}

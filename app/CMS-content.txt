@@ -1,0 +1,28 @@
+// contenido del CMS
+
+css:
+    - fontawesome v5.6.3        -> (libreria de iconos)
+    - bootstrap v4.2.1          -> (framework css)
+    - animate.css v3.7.0        -> (libreria de animaciones css)
+
+js:
+    - jquery v3.3.1             -> (framework js)
+    - jquery-ui v1.12.1         -> (ext. framework js)
+    - vuejs v2.0                -> (framework js)
+    - vuex                      -> (libreria de vue para comunicarse entre componentes)
+    - moment.js v2.23.0         -> (editor de fechas en js)
+    - slick carousel v1.8.1     -> (carousel)
+    - babel v7.2.0              -> (compilador js-emacs6)    
+    - Quilljs v1.3.6            -> (editor de texto)
+    - jsColor v2.0.5            -> (color-picker)
+    - simple-bar                -> (modifica los estilos de la barra scroll)
+    - notice-master             -> (alert libreria)
+
+php:
+    - nexosmart 11/01/2019      -> (framework en PHP)
+
+
+----
+
+funcionalidades cms-1 nexosmart: (agregar las funcionalidades que se traigan del anteror cms de nexosmart, ubicarlas correctamente).
+    - web-login.php -> login del cms     
